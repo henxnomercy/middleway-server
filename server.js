@@ -5,6 +5,11 @@ const WebSocket = require('ws');
 const app = express();
 app.use(bodyParser.json());
 
+const PORT = process.env.PORT || 3000; // Railway akan memberikan PORT
+app.listen(PORT, () => {
+    console.log(`Middleware berjalan di port ${PORT}`);
+});
+
 // Unity WebSocket
 const wss = new WebSocket.Server({ port: 8080 });
 let unityClient = null;
